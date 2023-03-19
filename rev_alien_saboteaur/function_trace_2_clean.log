@@ -1,0 +1,115 @@
+  252, vm_mov
+  258, vm_mov
+  264, vm_mov
+
+      270, vm_input
+      276, vm_store
+      282, vm_addi
+      288, vm_addi
+      294, vm_jle --> 270
+  
+  300, vm_mov
+  306, vm_mov
+  312, vm_mov
+  318, vm_mov
+  324, vm_mov
+  330, vm_mov
+  
+      # strcmp
+      336, vm_load
+      342, vm_load
+      348, vm_xor
+      354, vm_je --> 468
+      LOST
+      468, vm_addi
+      474, vm_addi
+      480, vm_addi
+      486, vm_jle --> 336
+
+492, vm_mov
+498, vm_push
+504, vm_push
+510, vm_push
+516, vm_inv
+522, vm_mov
+528, vm_je --> 648
+LOST
+
+  648, vm_mov
+  654, vm_muli
+  660, vm_mov
+  666, vm_mov
+  672, vm_mov
+
+      678, vm_load
+      684, vm_xor
+      690, vm_store
+      696, vm_addi
+      702, vm_addi
+      708, vm_jle --> 678 (1500 times?)
+
+  714, vm_putc
+  ..
+  852, vm_putc
+
+  858, vm_mov
+  864, vm_mov
+  870, vm_mov
+
+      # Reading input
+      876, vm_input
+      882, vm_store
+      888, vm_addi
+      894, vm_addi
+      900, vm_jle --> 876
+  
+  906, vm_mov
+  912, vm_mov
+  918, vm_mov
+  924, vm_mov
+  930, vm_mov
+  936, vm_mov
+
+      # Probably the interesting part
+      942, vm_load
+      948, vm_load
+      
+      954, vm_push
+      960, vm_pop
+      966, vm_mov
+      972, vm_add
+      978, vm_load
+
+      984, vm_store
+      990, vm_store
+
+      996, vm_addi
+      1002, vm_addi
+      1008, vm_addi
+      1014, vm_jle --> 942 (35)
+
+ 1020, vm_mov
+ 1026, vm_mov
+ 1032, vm_mov
+ 1038, vm_mov
+ 1116, vm_load
+ 1122, vm_mov
+ 1128, vm_mov
+ 1134, vm_mov
+
+    # strcmp
+    1140, vm_load
+    1146, vm_load
+    1152, vm_je --> 1206
+    LOST
+    1206, vm_addi
+    1212, vm_addi
+    1218, vm_addi
+    1224, vm_jle --> 1140 (35)
+
+
+ 1230, vm_putc
+ ..
+ 1410, vm_putc
+
+ 1416, vm_exit
